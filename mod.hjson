@@ -8,7 +8,7 @@ name: "eclipsis"
 author: "PosionFox"
 
 #the fully qualified main class of the mod
-main: "example.ExampleJavaMod"
+main: "eclipsis.Main"
 
 #the mod description as seen in the mod dialog
 description: "A mod that adds new content."
