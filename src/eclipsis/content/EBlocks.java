@@ -91,6 +91,7 @@ public class EBlocks {
 
             requirements(Category.crafting, BuildVisibility.shown, with(Items.copper, 25, Items.lead, 50, Items.titanium, 100));
             consumeItems(new ItemStack(Items.coal, 32));
+            consumeLiquid(ELiquids.acid, 4f);
             outputItem = new ItemStack(EItems.diamond, 1);
         }};
         //endregion
