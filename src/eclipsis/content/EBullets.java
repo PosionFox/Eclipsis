@@ -34,13 +34,20 @@ import static arc.math.Angles.randLenVectors;
 
 public class EBullets {
     public static BulletType
-        regressionBullet, dissensionBullet;
+        regressionBullet, dissensionBullet, regressionDiamondBullet;
 
     public static void load(){
-        regressionBullet = new BasicBulletType(10f, 2f){{
+        regressionBullet = new BasicBulletType(10f, 5f){{
             lifetime = 60f;
-            width = 2;
+            width = 2f;
             height = 10f;
+        }};
+        regressionDiamondBullet = new BasicBulletType(16f, 32f){{
+            lifetime = 120f;
+            width = 4f;
+            height = 8f;
+            reloadMultiplier = 0.25f;
+            pierce = true;
         }};
     }
 }
