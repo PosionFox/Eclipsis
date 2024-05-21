@@ -3,15 +3,13 @@ package eclipsis;
 import arc.*;
 import arc.graphics.Color;
 import arc.util.*;
-import eclipsis.content.blocks.EBlocks;
+import eclipsis.content.EBullets;
+import eclipsis.content.EItems;
+import eclipsis.content.EBlocks;
 import eclipsis.content.planets.ChrysidirosPlanetGenerator;
 import mindustry.content.*;
-import mindustry.entities.bullet.BasicBulletType;
-import mindustry.entities.bullet.FlakBulletType;
-import mindustry.entities.part.RegionPart;
 import mindustry.game.EventType.*;
 import mindustry.game.Team;
-import mindustry.gen.Sounds;
 import mindustry.graphics.Pal;
 import mindustry.graphics.g3d.HexMesh;
 import mindustry.graphics.g3d.HexSkyMesh;
@@ -19,11 +17,8 @@ import mindustry.graphics.g3d.MultiMesh;
 import mindustry.mod.*;
 import mindustry.type.*;
 import mindustry.ui.dialogs.*;
-import mindustry.world.blocks.defense.turrets.ItemTurret;
-import mindustry.world.draw.DrawTurret;
 
 import static mindustry.content.Planets.sun;
-import static mindustry.type.ItemStack.with;
 
 public class Main extends Mod{
 
@@ -34,8 +29,8 @@ public class Main extends Mod{
         Events.on(ClientLoadEvent.class, e -> {
             //show dialog upon startup
             Time.runTask(10f, () -> {
-                BaseDialog dialog = new BaseDialog("hey");
-                dialog.cont.add("you shouldn't be seeing this").row();
+                BaseDialog dialog = new BaseDialog("Eclipsis");
+                dialog.cont.add("Thanks for playing Eclipsis!").row();
                 //mod sprites are prefixed with the mod name (this mod is called 'example-java-mod' in its config)
                 dialog.cont.button("Ok", dialog::hide).size(100f, 50f);
                 dialog.show();
@@ -46,6 +41,8 @@ public class Main extends Mod{
     @Override
     public void loadContent() {
         Log.info("Loading Eclipsis content.");
+        EItems.load();
+        EBullets.load();
         EBlocks.load();
 
         Planet chrysidiros = new Planet("Chrysidiros", sun, 1f, 2){{
