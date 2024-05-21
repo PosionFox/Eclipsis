@@ -3,10 +3,7 @@ package eclipsis;
 import arc.*;
 import arc.graphics.Color;
 import arc.util.*;
-import eclipsis.content.EBullets;
-import eclipsis.content.EItems;
-import eclipsis.content.EBlocks;
-import eclipsis.content.ELiquids;
+import eclipsis.content.*;
 import eclipsis.content.planets.ChrysidirosPlanetGenerator;
 import mindustry.content.*;
 import mindustry.game.EventType.*;
@@ -42,6 +39,7 @@ public class Main extends Mod{
     @Override
     public void loadContent() {
         Log.info("Loading Eclipsis content.");
+        ESounds.load();
         EItems.load();
         ELiquids.load();
         EBullets.load();
