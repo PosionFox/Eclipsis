@@ -18,7 +18,7 @@ public class EBlocks {
         //turrets
         regression, fulmination,
         //crafters
-        glassFurnace, glassMelter, pcbAssembler;
+        glassFurnace, glassMelter, pcbAssembler, diamondPress;
 
     public static void load(){
         //region turrets
@@ -46,12 +46,12 @@ public class EBlocks {
                     under = true;
                     moveRot = 0;
                     moveX = 0f;
-                    moveY = 2f;
+                    moveY = -2f;
                 }}, new RegionPart("-barrel-l"){{
                     under = true;
                     moveRot = 0;
                     moveX = 0f;
-                    moveY = 2f;
+                    moveY = -2f;
                 }});
             }};
         }};
@@ -80,6 +80,18 @@ public class EBlocks {
             requirements(Category.crafting, BuildVisibility.shown, with(Items.copper, 100, Items.lead, 25, Items.titanium, 50));
             consumeItems(new ItemStack(Items.sand, 8));
             outputItem = new ItemStack(EItems.glass, 4);
+        }};
+
+        diamondPress = new GenericCrafter("diamond-press"){{
+            localizedName = "Diamond Press";
+            size = 2;
+            itemCapacity = 64;
+            craftTime = 60;
+            craftEffect = Fx.smoke;
+
+            requirements(Category.crafting, BuildVisibility.shown, with(Items.copper, 25, Items.lead, 50, Items.titanium, 100));
+            consumeItems(new ItemStack(Items.coal, 32));
+            outputItem = new ItemStack(EItems.diamond, 1);
         }};
         //endregion
     }
