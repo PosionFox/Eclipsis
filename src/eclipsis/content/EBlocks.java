@@ -2,6 +2,7 @@ package eclipsis.content;
 
 import mindustry.content.Fx;
 import mindustry.content.Items;
+import mindustry.content.Liquids;
 import mindustry.entities.part.RegionPart;
 import mindustry.type.*;
 import mindustry.world.*;
@@ -10,7 +11,8 @@ import mindustry.world.blocks.production.*;
 import mindustry.world.draw.DrawTurret;
 import mindustry.world.meta.*;
 
-import static eclipsis.content.EBullets.regressionBullet;
+import static eclipsis.content.EBullets.*;
+import static eclipsis.content.ESounds.*;
 import static mindustry.type.ItemStack.*;
 
 public class EBlocks {
@@ -24,20 +26,21 @@ public class EBlocks {
         //region turrets
         regression = new ItemTurret("regression"){{
             localizedName = "Regression";
-            requirements(Category.turret, with(Items.copper, 25));
+            requirements(Category.turret, with(Items.graphite, 25, Items.titanium, 30));
             ammo(
-                Items.copper, regressionBullet
+                Items.copper, regressionBullet, EItems.diamond, regressionDiamondBullet
             );
 
             recoil = 0.5f;
             shootY = 1f;
-            reload = 4f;
-            range = 100;
+            reload = 8f;
+            range = 128f;
             shootCone = 16f;
             ammoUseEffect = Fx.casing1;
-            health = 100;
+            health = 250;
             inaccuracy = 2f;
             rotateSpeed = 16f;
+            shootSound = regressionShoot;
 
             limitRange();
 
@@ -89,9 +92,10 @@ public class EBlocks {
             craftTime = 60;
             craftEffect = Fx.smoke;
 
-            requirements(Category.crafting, BuildVisibility.shown, with(Items.copper, 25, Items.lead, 50, Items.titanium, 100));
+            requirements(Category.crafting, BuildVisibility.shown, with(Items.copper, 25, Items.graphite, 50, Items.titanium, 100));
             consumeItems(new ItemStack(Items.coal, 32));
-            consumeLiquid(ELiquids.acid, 4f);
+            consumeLiquids(LiquidStack.with(Liquids.slag, 4f, ELiquids.acid, 2f));
+            consumePower(32f);
             outputItem = new ItemStack(EItems.diamond, 1);
         }};
         //endregion
