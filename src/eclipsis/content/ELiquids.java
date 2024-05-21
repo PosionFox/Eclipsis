@@ -9,7 +9,7 @@ public class ELiquids {
 
     public static void load(){
         acid = new Liquid("acid", Color.lime){{
-            
+            localizedName = "Acid";
         }};
     }
 }
