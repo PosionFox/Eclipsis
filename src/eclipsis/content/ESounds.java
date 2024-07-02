@@ -8,11 +8,12 @@ import mindustry.Vars;
 
 public class ESounds {
     public static Sound
-        regressionShoot, fulminationShoot;
+        regressionShoot, fulminationShoot, dissensionShoot;
 
     public static void load(){
         regressionShoot = loadSound("regression-shoot");
-        fulminationShoot = loadSound("fulmination-shoot");
+        fulminationShoot = loadSound("laser-big");
+        dissensionShoot = loadSound("dissension-shoot");
     }
 
     //shamelessly stolen from new horizon
